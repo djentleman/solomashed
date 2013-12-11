@@ -30,7 +30,7 @@ def processRequestText():
 
 @app.route("/voice", methods=['GET', 'POST'])
 def processRequestVoice():
-    resp.twiml.
+    pass
  
 
 def start():
