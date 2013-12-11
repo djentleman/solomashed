@@ -8,10 +8,14 @@ def processRequest():
     """Respond to incoming calls with a simple text message."""
  
     resp = twilio.twiml.Response()
-    resp.message("Hello!")
+    message = ""
 
     for formItem in request.form:
-    	print formItem + ": " + request.form[formItem]
+    	line = formItem + ": " + request.form[formItem] + "\n"
+    	message += line
+
+    resp.message(message)
+    print message
 
     return str(resp)
  
