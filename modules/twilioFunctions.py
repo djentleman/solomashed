@@ -7,18 +7,23 @@ app = Flask(__name__)
 def processRequest():
 	#Useful vars
     resp = twilio.twiml.Response()
-    reply = "blank"
+    reply = "Nothing at the moment"
     sender = request.form["From"]
     message = request.form["Body"]
+    debug = ""
 
     #Debug output to console
     for formItem in request.form:
     	line = formItem + ": " + request.form[formItem] + "\n"
+    	debug += line
+    print "##########\n" + debug + "##########"
+
     print message
 
     #####Your function######
     #reply = someFunction(from,message)
 
+    print reply
     resp.message(reply)
     return str(resp)
  
