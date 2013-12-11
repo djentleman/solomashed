@@ -1,5 +1,6 @@
 from flask import Flask, request, redirect
 import twilio.twiml
+import parser
  
 app = Flask(__name__)
  
@@ -21,12 +22,16 @@ def processRequest():
     print message
 
     #####Your function######
-    #reply = someFunction(from,message)
+    reply = handleMessage(sender,message)
 
     print reply
     resp.message(reply)
     return str(resp)
  
- def start():
-    if __name__ == "__main__":
-        app.run(host='0.0.0.0',debug=True)
+
+def start():
+    app.run(host='0.0.0.0',debug=True)
+
+def handleMessage(sender, message):
+    reply = parse.parse(message)
+    return reply
