@@ -223,6 +223,8 @@ def drinksTonight(con, pNumber):
     else:
         message = message + "You are SOLOSMASHED!" 
 
+    return message
+
 def getCurrentUnits(con, pNumber):
     c = con.cursor()
     c.execute("SELECT u.unitsInSystem FROM Users u WHERE u.pNumber = :pNumber", {"pNumber" : pNumber})
