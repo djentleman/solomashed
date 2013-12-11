@@ -2,6 +2,8 @@ from flask import Flask, request, redirect
 import twilio.twiml
 import parser
 import json
+import databaseFunctions as db
+
  
 app = Flask(__name__)
  
@@ -51,6 +53,9 @@ def handleMessage(sender, message):
         #play mum's spag
         return ""
     elif callback == 1:
+        # update database
+        data = reply[1]
+        db.insertUserDrink(con, str(sender), data[0], data[1])
         #Return the number of units drunk
         return ""
     elif callback == 2:
@@ -65,4 +70,7 @@ def handleMessage(sender, message):
             #################
             info - display help page
                """
+    elif callback == 4:
+        # dump out this nights stats
+        return ""
     return ""
