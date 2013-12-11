@@ -194,7 +194,6 @@ def insertUser(con, pNumber, name):
     con.commit()
 
 def drinksTonight(con, pNumber):
-    def drinksTonight(con, pNumber):
     c = con.cursor()
     c.execute("SELECT d.name, m.name from Drinks d, userDrinks ud, Measures m WHERE m.rowid = ud.measureID AND d.rowid = ud.drinkID AND ud.timeConsumed > datetime('now') - ('12:00:00')")
     queryRows = c.fetchall()
