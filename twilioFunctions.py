@@ -58,7 +58,8 @@ def handleMessage(sender, message):
         # update database
             data = reply[1]
             insertUserDrink(con, str(sender), data[0], data[1])
-            return "Your drink has been successfully added."
+            return "Your drink has been successfully added." + "  \n "\
+             + str(drinksTonight(con, str(sender)))
         #except:
             return "Shit code is shit :("
         #Return the number of units drunk
