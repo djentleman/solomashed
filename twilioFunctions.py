@@ -199,8 +199,8 @@ def drinksTonight(con, pNumber):
     queryRows = c.fetchall()
     con.commit()
     message = "Drinks Tonight: \n" + str(queryRows)
-    message = message + "\n Total Units Dranks: \n" + averageUnitsInSystem(con, pNumber)
-    message = message + "\n Current Blood Alchohol Units: \n" + getCurrentUnits(con, pNumber)
+    message = message + "\n Total Units Dranks: \n" + str(averageUnitsInSystem(con, pNumber))
+    message = message + "\n Current Blood Alchohol Units: \n" + str(getCurrentUnits(con, pNumber))
     drunkness = int(getCurrentUnits(con, pNumber))
     if drunkness <= 2:
         message = message + "You are Sober!"
