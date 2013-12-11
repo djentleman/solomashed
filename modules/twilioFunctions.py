@@ -5,18 +5,21 @@ app = Flask(__name__)
  
 @app.route("/", methods=['GET', 'POST'])
 def processRequest():
-    """Respond to incoming calls with a simple text message."""
- 
+	#Useful vars
     resp = twilio.twiml.Response()
-    message = ""
+    reply = "blank"
+    sender = request.form["From"]
+    message = request.form["Body"]
 
+    #Debug output to console
     for formItem in request.form:
     	line = formItem + ": " + request.form[formItem] + "\n"
-    	message += line
-
-    resp.message(message)
     print message
 
+    #####Your function######
+    #reply = someFunction(from,message)
+
+    resp.message(reply)
     return str(resp)
  
 if __name__ == "__main__":
