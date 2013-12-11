@@ -37,12 +37,17 @@ def processRequestVoice():
  
 
 def start():
+    global con
+    createTables(con)
+    populateDrinks(con)
+    populateUsers(con)
+    populateMeasures(con)
     app.run(host='0.0.0.0',debug=True)
 
 def handleMessage(sender, message):
     reply = json.loads(parser.parse(message))
 
-    con = generateConnection()
+    global con
 
     print "Reply (type): " + str(type(reply))
     print reply
@@ -283,9 +288,6 @@ def insertUserDrink(con, pNumber, drinkName, measureName):
     con.commit()
     return "success"
 
-con = generateConnection()
-createTables(con)
-populateDrinks(con)
-populateUsers(con)
-populateMeasures(con)
 
+
+con = generateConnection()
