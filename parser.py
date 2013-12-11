@@ -54,7 +54,7 @@ def parse(strIn):
     else:
         if strIn == "shrek":
             callback = 2# "\"Therses Noone I'd Rather Be, Than Shrek\""
-        elif strIn == "help":
+        elif strIn == "info":
             callback = 3# "run help system"
         elif strIn == "stats" or strIn == "statdump":
             callback = 4# "dump status [units in system, total units ever, etc...]"
