@@ -198,7 +198,7 @@ def drinksTonight(con, pNumber):
     c.execute("SELECT d.name, m.name from Drinks d, userDrinks ud, Measures m WHERE m.rowid = ud.measureID AND d.rowid = ud.drinkID AND ud.timeConsumed > datetime('now') - ('12:00:00')")
     queryRows = c.fetchall()
     con.commit()
-    message = "Drinks Tonight: \n" + queryRows
+    message = "Drinks Tonight: \n" + str(queryRows)
     message = message + "\n Total Units Dranks: \n" + averageUnitsInSystem(con, pNumber)
     message = message + "\n Current Blood Alchohol Units: \n" + getCurrentUnits(con, pNumber)
     drunkness = int(getCurrentUnits(con, pNumber))
