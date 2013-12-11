@@ -79,8 +79,8 @@ def handleMessage(sender, message):
                """
     elif callback == 4:
         # dump out this nights stats
-        drinks = drinksTonight()
-        return drinks
+        drinks = drinksTonight(con, str(sender))
+        return str(drinks)
     return ""
 
 
