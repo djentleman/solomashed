@@ -139,7 +139,7 @@ def populateMeasures(con):
         INSERT INTO Measures VALUES('bottle', 700);
         INSERT INTO Measures VALUES('can', 500);
         INSERT INTO Measures VALUES('stubby', 333);
-        INSERT INTO Drinks VALUES('halfpint', 230);
+        INSERT INTO Measures VALUES('halfpint', 230);
         
         """)
     con.commit()
@@ -220,7 +220,7 @@ def drinksTonight(con, pNumber):
     elif drunkness <= 18:
         message = message + "You are Paraletic!"
     else:
-        message = message + "You are SOLOSMASHED!" 
+        message = message + "You are SOLOSMASHED!"
 
     return message
 
@@ -255,6 +255,7 @@ def averageUnitsInSystem(con, pNumber):
     print totalUnits
 
 def insertUserDrink(con, pNumber, drinkName, measureName):
+   
     c = con.cursor()
 
     c.execute("SELECT u.name FROM Users u WHERE u.pNumber = :pNumber", {"pNumber": pNumber})
