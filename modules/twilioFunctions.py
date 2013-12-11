@@ -8,7 +8,11 @@ def processRequest():
     """Respond to incoming calls with a simple text message."""
  
     resp = twilio.twiml.Response()
-    resp.message(str(request.form['from']))
+    resp.message("Hello!")
+
+    for formItem in request.form:
+    	print formItem + ": " + request.form[formItem]
+
     return str(resp)
  
 if __name__ == "__main__":
