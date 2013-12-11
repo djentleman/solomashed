@@ -56,10 +56,13 @@ def handleMessage(sender, message):
         #play mum's spag
         return ""
     elif callback == 1:
+        try:
         # update database
-        data = reply[1]
-        insertUserDrink(con, str(sender), data[0], data[1])
-        print getAllUsers(con)
+            data = reply[1]
+            insertUserDrink(con, str(sender), data[0], data[1])
+            return "Your drink has been successfully added."
+        except:
+            return "Shit code is shit :("
         #Return the number of units drunk
         return ""
     elif callback == 2:
@@ -76,7 +79,8 @@ def handleMessage(sender, message):
                """
     elif callback == 4:
         # dump out this nights stats
-        return ""
+        drinks = drinksTonight()
+        return drinks
     return ""
 
 
