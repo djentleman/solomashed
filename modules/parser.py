@@ -42,22 +42,22 @@ def spellCheck(strIn):
 def parse(strIn):
     strIn = spellCheck(strIn)
     if strIn == "":
-        return -1 # cannot deciper spelling
+        return -1, "" # cannot deciper spelling
     callback = -1
     if " " in strIn:
         if "spaghetti" in strIn:
             callback = 0#"play mom's spaghetti.mp3"
         else:
-            callback = 1#print("update database with: " + strIn.split(" ")[0] \
-                  #+ ", " + strIn.split(" ")[1])
+            callback = 1# "update database with: " + strIn.split(" ")[0] \
+                  #+ ", " + strIn.split(" ")[1]
     else:
         if strIn == "shrek":
-            callback = 2#print("\"Theres Noone I'd Rather Be, Than Shrek\"")
+            callback = 2# "\"Theres Noone I'd Rather Be, Than Shrek\""
         elif strIn == "help":
-            callback = 3#print("run help system")
+            callback = 3# "run help system"
         elif strIn == "stats" or strIn == "statdump":
-            callback = 4#print("dump status [units in system, total units ever, etc...]")
-    return callback
+            callback = 4# "dump status [units in system, total units ever, etc...]"
+    return callback, strIn.split(" ")
 
 
 
