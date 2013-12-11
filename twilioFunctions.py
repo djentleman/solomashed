@@ -1,6 +1,7 @@
 from flask import Flask, request, redirect
 import twilio.twiml
 import parser
+import json
  
 app = Flask(__name__)
  
@@ -37,6 +38,6 @@ def start():
     app.run(host='0.0.0.0',debug=True)
 
 def handleMessage(sender, message):
-    reply = list(parser.parse(message))
+    reply = json.loads(parser.parse(message))
 
     return reply[0]
