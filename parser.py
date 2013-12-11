@@ -58,7 +58,7 @@ def parse(strIn):
             callback = 3# "run help system"
         elif strIn == "stats" or strIn == "statdump":
             callback = 4# "dump status [units in system, total units ever, etc...]"
-    return json.dumps(callback, strIn.split(" "))
+    return json.dumps((callback, strIn.split(" ")))
 
 
 
