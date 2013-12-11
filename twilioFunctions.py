@@ -41,6 +41,9 @@ def start():
 
 def handleMessage(sender, message):
     reply = json.loads(parser.parse(message))
+
+    con = generateConnection()
+
     print "Reply (type): " + str(type(reply))
     print reply
     callback = reply[0]   
