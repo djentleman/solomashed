@@ -43,7 +43,7 @@ def spellCheck(strIn):
 def parse(strIn):
     strIn = spellCheck(strIn)
     if strIn == "":
-        return json.dumps(-1, "") # cannot deciper spelling
+        return json.dumps((-1, "")) # cannot deciper spelling
     callback = -1
     if " " in strIn:
         if "spaghetti" in strIn:
