@@ -33,5 +33,5 @@ def start():
     app.run(host='0.0.0.0',debug=True)
 
 def handleMessage(sender, message):
-    reply = parse.parse(message)
+    reply = parser.parse(message)
     return reply
