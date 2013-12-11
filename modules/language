@@ -13,7 +13,8 @@ ragnarok
 ethanol
 moonshine
 absinthe
-
+superstrength
+mixer
 
 #MEASUMENTS
 
@@ -22,7 +23,14 @@ litre
 liter
 shot
 double
+bottle
 can
 stubby
-bottle
 halfpint
+
+#OTHER
+
+shrek
+spaghetti
+stats
+statdump
