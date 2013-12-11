@@ -39,7 +39,12 @@ def start():
 
 def handleMessage(sender, message):
     reply = json.loads(parser.parse(message))
-    callback = reply[0]
+    print "Reply (type): " + type(reply)
+    print reply
+    callback = reply[0]   
+    print "callback (type): " + type(callback)
+    print callback
+
     if callback == -1:
         return "You have had too much for your input to be parsed. Go home. Do not stop for a kebab."
     elif callback == 0:
