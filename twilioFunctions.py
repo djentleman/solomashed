@@ -39,6 +39,17 @@ def start():
 
 def handleMessage(sender, message):
     reply = json.loads(parser.parse(message))
-    print reply[0]
-
+    callback = reply[0]
+    if callback == -1:
+        return "You have had too much for your input to be parsed. Go home. Do not stop for a kebab."
+    elif callback == 0:
+        #play mum's spag
+        return ""
+    elif callback == 1:
+        #Return the number of units drunk
+        return ""
+    elif callback == 2:
+        return "I'm bad and that's good. I'll never be good and that's not bad. There's no one I'd rather be than SHREK."
+    elif callback == 3:
+        return "Commands:\n stats/statdump\n help"
     return ""
