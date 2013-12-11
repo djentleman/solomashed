@@ -154,6 +154,9 @@ def insertUserDrink(con, pNumber, drinkName, measureName):
     con.commit()
     return "success"
 
+def getCon():
+    return con
+
 con = generateConnection()
 createTables(con)
 populateDrinks(con)
