@@ -4,8 +4,8 @@ import twilio.twiml
 app = Flask(__name__)
  
 @app.route("/", methods=['GET', 'POST'])
-def hello_monkey():
-    """Respond to incoming calls with a simple text message."""
+def processRequest():
+    """Respond to incoming texts"""
  
     resp = twilio.twiml.Response()
     resp.message("Hello, Mobile Monkey")
