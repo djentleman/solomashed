@@ -39,10 +39,10 @@ def start():
 
 def handleMessage(sender, message):
     reply = json.loads(parser.parse(message))
-    print "Reply (type): " + type(reply)
+    print "Reply (type): " + str(type(reply))
     print reply
     callback = reply[0]   
-    print "callback (type): " + type(callback)
+    print "callback (type): " + str(type(callback))
     print callback
 
     if callback == -1:
