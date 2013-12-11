@@ -39,5 +39,6 @@ def start():
 
 def handleMessage(sender, message):
     reply = json.loads(parser.parse(message))
+    print reply
 
-    return reply[0]
+    return ""
