@@ -5,7 +5,7 @@ import parser
 app = Flask(__name__)
  
 @app.route("/", methods=['GET', 'POST'])
-def processRequest():
+def processRequestText():
 	#Useful vars
     resp = twilio.twiml.Response()
     reply = "Nothing at the moment"
@@ -27,6 +27,10 @@ def processRequest():
     print reply
     resp.message(reply)
     return str(resp)
+
+@app.route("/voice", methods=['GET', 'POST'])
+def processRequestVoice():
+    resp.twiml.
  
 
 def start():
@@ -34,4 +38,5 @@ def start():
 
 def handleMessage(sender, message):
     reply = parser.parse(message)
-    return reply
+
+    return reply[0]
