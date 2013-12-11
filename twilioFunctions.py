@@ -59,6 +59,7 @@ def handleMessage(sender, message):
         # update database
         data = reply[1]
         insertUserDrink(con, str(sender), data[0], data[1])
+        print getAllUsers(con)
         #Return the number of units drunk
         return ""
     elif callback == 2:
