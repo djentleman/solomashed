@@ -41,7 +41,7 @@ def start():
 
 def handleMessage(sender, message):
     reply = json.loads(parser.parse(message))
-    global con
+    con = generateConnection()
     print "Reply (type): " + str(type(reply))
     print reply
     callback = reply[0]   
@@ -54,15 +54,16 @@ def handleMessage(sender, message):
         #play mum's spag
         return ""
     elif callback == 1:
-        try:
+        #try:
         # update database
             data = reply[1]
             insertUserDrink(con, str(sender), data[0], data[1])
-            return "Your drink has been successfully added."
-        except:
+            return "Your drink has been successfully added." + "  \n "\
+             + str(drinksTonight(con, str(sender)))
+        #except:
             return "Shit code is shit :("
         #Return the number of units drunk
-        return ""
+        #return ""
     elif callback == 2:
         return "I'm bad and that's good. I'll never be good and that's not bad. There's no one I'd rather be than SHREK."
     elif callback == 3:
@@ -281,10 +282,7 @@ def insertUserDrink(con, pNumber, drinkName, measureName):
     con.commit()
     return "success"
 
-global con
 con = generateConnection()
-createTables(con)
 populateDrinks(con)
-populateUsers(con)
 populateMeasures(con)
 
