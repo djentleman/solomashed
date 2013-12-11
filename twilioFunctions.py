@@ -56,5 +56,13 @@ def handleMessage(sender, message):
     elif callback == 2:
         return "I'm bad and that's good. I'll never be good and that's not bad. There's no one I'd rather be than SHREK."
     elif callback == 3:
-        return "Commands:\n stats/statdump\n help"
+        return """
+            Commands:
+            #################
+            <drink> <measure> - update the drinks databases
+            #################
+            stats/statdump - display stats from your night out
+            #################
+            info - display help page
+               """
     return ""
