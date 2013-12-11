@@ -113,7 +113,19 @@ def populateDrinks(con):
     c.executescript("""
         INSERT INTO Drinks VALUES('beer', 4);
         INSERT INTO Drinks VALUES('wine', 13);
+        INSERT INTO Drinks VALUES('lager', 4);
         INSERT INTO Drinks VALUES('vodka', 40);
+        INSERT INTO Drinks VALUES('cider', 4);
+        INSERT INTO Drinks VALUES('whiskey', 40);
+        INSERT INTO Drinks VALUES('gin', 40);
+        INSERT INTO Drinks VALUES('rum', 40);
+        INSERT INTO Drinks VALUES('sake', 20);
+        INSERT INTO Drinks VALUES('ragnarok', 10);
+        INSERT INTO Drinks VALUES('ethanol', 100);
+        INSERT INTO Drinks VALUES('moonshine', 70);
+        INSERT INTO Drinks VALUES('absinthe', 60);
+        INSERT INTO Drinks VALUES('superstrength', 10);
+        INSERT INTO Drinks VALUES('mixer', 8);
         """)
     con.commit()
 
@@ -121,8 +133,15 @@ def populateMeasures(con):
     c = con.cursor()
     c.executescript("""
         INSERT INTO Measures VALUES('pint', 568);
-        INSERT INTO Measures VALUES('shot', 44);
+        INSERT INTO Measures VALUES('shot', 25);
+        INSERT INTO Measures VALUES('double', 50);
         INSERT INTO Measures VALUES('litre', 1000);
+        INSERT INTO Measures VALUES('liter', 1000);
+        INSERT INTO Measures VALUES('bottle', 700);
+        INSERT INTO Measures VALUES('can', 500);
+        INSERT INTO Measures VALUES('stubby', 333);
+        INSERT INTO Drinks VALUES('halfpint', 230);
+        
         """)
     con.commit()
 
@@ -239,11 +258,9 @@ def insertUserDrink(con, pNumber, drinkName, measureName):
     con.commit()
     return "success"
 
-def getCon():
-    return con
-
 con = generateConnection()
 createTables(con)
 populateDrinks(con)
 populateUsers(con)
 populateMeasures(con)
+
