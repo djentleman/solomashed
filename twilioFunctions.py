@@ -194,11 +194,35 @@ def insertUser(con, pNumber, name):
     con.commit()
 
 def drinksTonight(con, pNumber):
+    def drinksTonight(con, pNumber):
     c = con.cursor()
     c.execute("SELECT d.name, m.name from Drinks d, userDrinks ud, Measures m WHERE m.rowid = ud.measureID AND d.rowid = ud.drinkID AND ud.timeConsumed > datetime('now') - ('12:00:00')")
     queryRows = c.fetchall()
     con.commit()
-    return queryRows
+    message = "Drinks Tonight: \n" + queryRows
+    message = message + "\n Total Units Dranks: \n" + averageUnitsInSystem(con, pNumber)
+    message = message + "\n Current Blood Alchohol Units: \n" + getCurrentUnits(con, pNumber)
+    drunkness = int(getCurrentUnits(con, pNumber))
+    if drunkness <= 2:
+        message = message + "You are Sober!"
+    elif drunkness <= 4:
+        message = message + "You got stuff to do today!"
+    elif drunkness <= 6:
+        message = message + "You are Tipsy!"    
+    elif drunkness <= 8:
+        message = message + "You are Wobbly!" 
+    elif drunkness <= 10:
+        message = message + "You are Merry!" 
+    elif drunkness <= 12:
+        message = message + "You are Drunk!"
+    elif drunkness <= 14:
+        message = message + "You are Pissed!" 
+    elif drunkness <= 16:
+        message = message + "You are Smashed!"
+    elif drunkness <= 18:
+        message = message + "You are Paraletic!"
+    else:
+        message = message + "You are SOLOSMASHED!" 
 
 def getCurrentUnits(con, pNumber):
     c = con.cursor()
