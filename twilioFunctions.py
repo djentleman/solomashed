@@ -40,6 +40,7 @@ def start():
     app.run(host='0.0.0.0',debug=True)
 
 def handleMessage(sender, message):
+    con = db.getCon()
     reply = json.loads(parser.parse(message))
     print "Reply (type): " + str(type(reply))
     print reply
