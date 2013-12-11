@@ -19,14 +19,30 @@ spaghetti <amount>
 # need to intellegently allocate stack depth
 
 def removeDelimiters(strIn, delimiters):
-    pass
+    for pattern in delimiters:
+        strIn = strIn.replace(pattern, " ")
+    return strIn
+
+getStackDepth = lambda: 2 # needs to be replaced with database query function
 
 def spellCheck(strIn):
+    stackDepth = getStackDepth()
     # remove any delimiters and stuff
-    strIn = strIn.replace(",", "").replace(";", "
+    strIn = removeDelimiters(strIn, [",", ";", "_", "-"])
+    words = [word for word in strIn.split(" ") if word != ""]
+    spelledStr = ""
+    for word in words:
+        current = spell.correct(word, stackDepth)
+        if current == "":
+            return ""
+        spelledStr+= (current + " ")
+    
+    return spelledStr[:-1]
 
 def parse(strIn):
     strIn = spellCheck(strIn)
+    if strIn == "":
+        return -1 # cannot deciper spelling
     callback = -1
     if " " in strIn:
         if "spaghetti" in strIn:
