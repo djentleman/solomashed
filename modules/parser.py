@@ -16,9 +16,17 @@ spaghetti <amount>
 """
 # stuff that doesn't pass the spell check will get a -1 callback
 
+# need to intellegently allocate stack depth
 
+def removeDelimiters(strIn, delimiters):
+    pass
+
+def spellCheck(strIn):
+    # remove any delimiters and stuff
+    strIn = strIn.replace(",", "").replace(";", "
 
 def parse(strIn):
+    strIn = spellCheck(strIn)
     callback = -1
     if " " in strIn:
         if "spaghetti" in strIn:
